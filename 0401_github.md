@@ -192,7 +192,7 @@ origin 相当于远程repo，而origin/dev 则表示这个远程repo上的dev分
 		* 很多我看到的操作都无法进行啊，不知道怎么回事
 		* `git pull 远程主机 远程分支:本地分支` 取回远程的一个分支，与本地分支合并
 		* 如果`git pull`提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令`git branch --set-upstream branch-name origin/branch-name`
-		
+		* `git remote`  
 	* 所以正常的工作流程:
 		* git push origin 
 		* 

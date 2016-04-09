@@ -101,6 +101,7 @@
 1. `\include{filename.tex}` 另起一页加入.tex中的内容(这个.tex格式是否有一些要求？)
 2. `\includeonly{file1,file2,file3,...}` 在导言区加入，目前还不知道具体的用途
 3. `syntonly` 可以进行拼写检查
+4. `\import{intro}` 即可将intro.tex内容导入到相应位置，intro.tex就不用是完整的latex源文件格式了
 ### 杂
 * `/maketitle` 生成标头
 * `/tableofcontents` 就是生成目录

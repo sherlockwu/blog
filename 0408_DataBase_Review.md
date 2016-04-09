@@ -18,12 +18,16 @@
 		* 处理，现代大多数web service还是以数据量大为特点的，所以基本都是MySQL
 		* 非关系型数据库 Redis
 		数据放在内存中（MySQL是磁盘中）
-## Review
 
-## Project 
+## Database Review
+
+## Related Blogs 
+* 0408_javascript.md  
 
 ## Conclusion 
+学习路线： 
 
+	HTML/CSS/JS -> PHP/Database
 ## Reference 
 1. [知乎一个挺好的答案](https://www.zhihu.com/question/20003635)
 
