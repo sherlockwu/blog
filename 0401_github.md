@@ -1,0 +1,217 @@
+# Github学习
+
+## Git 简介
+* 版本控制系统： 可以帮我们记录每次文件的改动&系统编辑
+* Linus 写的分布式版本控制器; Github online&free 极大的推动了Git的普及
+* 分布式：
+> 	每个PC都有完整的版本库，各自修改->同步，互相发送修改的部分(不同于集中式存储版本库)
+
+* 分支管理是Git的一大特点？
+* 跟踪的变化是：文本文档的变动，Bin不记录具体变在了哪里（eg. MS 的word文件）
+
+## 安装Git 
+OS X:
+``` 
+sudo brew install git
+``` 
+
+[各OS安装说明](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000)
+
+用户使用前的配置:
+```
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+```
+
+## 版本库
+
+	版本库: repository; 创建Repo就相当于，在这个目录下的文件以后都会由git追踪版本，进行控制
+
+* 创建版本库 (就是创建一个目录)
+``` 
+$ mkdir
+$ cd 
+``` 
+
+* 把这个仓库设为under git管理的(已经在rep目录下了)
+```
+$ git init
+%% 随后会生成.git 目录,记录git管理下记录的各种信息
+```
+
+
+* 将文件添加到Repo
+	* 新文件 move to this Repo
+	* add 
+	``` 
+	$ git add 文件名	
+	``` 
+	* commit
+	```
+	$ git commit -m "说明"
+	``` 
+	* 通俗的说： add 添加文件（最好新建一个文件就add），commit多用于多个文件添加之后，记录comment等
+
+
+
+## 版本跳转
+	一些跳转，不同版本之间，不同区（工作区，暂存区，分支中）之间（这段等待重写一下！）
+
+* 一些查看status的指令
+	* git status 
+	* git diff 
+	* 分别查看修改的状况&上一次修改的内容
+
+* ***提交修改*** 和 提交新文件 操作一样的
+
+* git log 查看commit的记录（每次commit相当于手动sanpshot这个Repo的状态）
+* git reset
+	* 回撤到记录的某个版本： HEAD表示最新的那个commit; HEAD^表示上一个,以此类推; HEAD~n 上n个
+	``` 
+	git reset -hard HEAD^	
+	``` 
+	* **如果后悔了**，想撤回到较新的一个commit 
+	```
+	git reset -hard 版本号(前几位区分就可以)
+	``` 
+	* **找不到版本号了**，可以使用 git reflog命令
+
+* **工作区&暂存区**   （介绍了git的一些做法&add commit的实际工作)
+	* Git追踪时，会有暂存区->各分支
+	* 所以add 先将一些文件当前版本存入暂存区; 然后再commit到指定的分支
+		* 没add到暂存区的修改，commit时不会包含这些修改
+* 管理修改
+git 管理的是修改，而非文本
+
+	* ` $ git checkout -- file ` 可以将工作区文件还原到缓存区或分支中的当前版本(感觉它就是用于工作区文件和缓存区或commit之后的文件之间的恢复的)
+	* ` $ git reset HEAD file ` 可以将缓存区中的文件恢复到工作区的状态
+	* 两个合用，就是先撤销缓存区中的内容，然后checkout到上次commit的内容
+
+* 删除文件 
+	* `$ git rm` 然后 `$ git commit` 就好
+	* `$ git checkout -- file` 可用来恢复未commit的删除
+
+
+***需要重新写一下！！！***
+
+
+## 远程仓库 
+分布式特有的， 一般是有一个24小时工作的中心版本库，别的pc从它clone并commit上去； Github 就是一个很好的服务server 
+
+* 和github 连接
+	* ssh 设置 
+		` $ ssh-keygen -t rsa -C "youremail@example.com"`
+		默认设置即可，无需设置密码什么的
+		产生的公钥，私钥 都在/Users/sherlock/.ssh 中
+	* github 设置 
+		在账户ssh key设置中，将本机产生的id_rsd.pub 粘贴进去		
+
+* 添加远程库
+	基本想法是，本地的一个Repo和Github上的一个Repo同步，也可能多人同时使用
+	* 在Github 上新建一个 Repo
+	* 进入本地需要同步的Repo
+	* `$ git remote add origin https://github.com/sherlockwu/normal-coding.git `
+	(远程库名字默认设为origin了)
+	* git push 把本地内容推送到远程库
+	首次： `$ git push -u origin master`
+	(将master分支推送到远程，并且与远程的master分支关联）
+	以后： `$ git push origin master`  
+	
+* clone from 远程库
+	基本想法是，从Github上把一个Repo拷贝下来
+	* 在上一层目录： `$ git clone git@github.com:michaelliao/gitskills.git`
+	* 默认名字就是origin上的这个repo的名字（后面可以自己再改）; 一般也就刚加入这个project的时候用一下
+	* 然后进入，进行修改 push等操作
+
+## 分支管理 
+分支： 一个user 单独进行开发的空间，提交不影响别人的这部分代码；到比如说这个功能完整开发完毕之后，再将几个分支进行合并
+
+* 创建&合并分支
+	* 基础知识：
+		* 一条分支相当于一条时间线记录修改; 主线：master
+		* 分支其实也就是指向时间线上某点(一个commit代表一个点)的一个指针(Master也是) (lxf那篇Blog的视频真的很好)
+	* 实战：
+		* 创建分支
+		```
+		$ git branch try    % 新建分支try
+		$ git checkout try  % 切换到try分支
+
+		$ git checkout -b try % 等同于上两条指令
+		```
+		* 查看几个分支
+		```
+		$ git branch
+		```
+		* 将工作成果合并到master分支
+		```
+		$ git merge xxx     % 将xxx分支合并到当前分支
+
+		```
+		* 删除测试分支
+		```
+		$ git branch -d try 
+		```
+	* 使用:
+		* 这个分支真的是有点神奇 :) 
+		* 我认为还是很好使用的！ 适用于不同的尝试
+* 解决冲突
+	* 如果在**两条不同分支** 对于 **同一文件**进行了操作，就产生了冲突
+	* `merge`之后，会报告冲突，这时可以手工修改，然后commit即可 
+	* 没有实战，预测不会遇到
+	* `--no-ff` 还没有
+* 分支管理策略
+	* master 保持绝对可行的代码版本，在其他分支上进行代码开发
+	* 团队合作使用多分支还是很方便的
+* Bug 分支 
+	* 在当前分支上进行了工作，还没有完成，也不好提交，but你急需去另外一个分支完成一个任务，eg Bug修复
+	* 使用隐藏工作场景功能
+	```
+	$ git stash
+	% 完成了其他操作之后，回到这个分支的时候
+	$ git stash pop 
+	```
+* Feature 分支
+	当一个branch，不合并即需删除，用 `git checkout -D xxx`
+* 多人协作 （***git远程仓库使用***）
+origin 相当于远程repo，而origin/dev 则表示这个远程repo上的dev分支
+	* git 和远端仓库 
+		* `git clone xxx yyy` 从远程库拷贝一个repo，创建成名为yyy的文件夹(默认在当前地址下创建一个同名的dir)
+		* 建立远端branch 
+		`git push -u origin new_branch` 就是将当前branch建立到远端
+		`git fetch` ? 
+		* 使用远端branch
+		`git checkout origin/new_branch -b new_branch` 新建new_branch 和远端的branch链接
+		* 删除远端branch 
+		`git push origin :branch` 删除远端的这个branch
+		
+		* `git remote -v` 查询与本地关联的远程分支的信息
+		* `git push origin xxx` 表示把本地的xxx分支推送到origin上（由于第一次一般`git push -u origin master`表示了将本地origin和远程origin分支关联起来）
+			* 所以本地和远程库之间的推送，是必须各分支对应的（必须有关联）
+		* `git fetch 远程主机名` 取回远端所有分支的更新,但是不影响本地文件（需要以远程主机/分支 来读取）
+		* `git branch -r` 查看远端的分支
+		* 很多我看到的操作都无法进行啊，不知道怎么回事
+		* `git pull 远程主机 远程分支:本地分支` 取回远程的一个分支，与本地分支合并
+		* 如果`git pull`提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令`git branch --set-upstream branch-name origin/branch-name`
+		
+	* 所以正常的工作流程:
+		* git push origin 
+		* 
+
+
+## 标签管理
+什么叫标签？？ 
+
+
+## 使用 Github
+和普通的git 有区别么？？
+
+## 自定义 Git??
+这段话什么意思
+
+## 使用事项:
+* commit 的comment还是要详细一点： 至少文件名&大致修改内容：
+* **如何在一个repo下新建子文件夹?**
+## Reference: 
+[1 一个十分详细易懂的教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+[2 阮一峰的一篇教程,有的不对](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
+[3 关于远端branch操作的Blog](https://blog.longwin.com.tw/2013/11/git-create-remote-branch-2013/)

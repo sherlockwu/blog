@@ -1,0 +1,191 @@
+#Python 学习    基础 (一)
+## 关于Python的学习计划
+* 不打算一次到实战，目前也没有太迫切的需求
+* 现阶段，完整了解语法，可上手即可
+
+## Introduction 
+* 一个我一直不关心过的东西，就是高级语言不仅高级在好的抽象化设计，也蕴含了更多便于我们变成的库; Python 就有很多
+* Python的哲学：simple
+* 适合： 网络应用&开发工具；
+* Python 是解释型语言： 运行慢&没有编译也就意味着必须release源码
+* Python 解释器使用：
+	* **Erro**: "*python3-3.5.1 already installed, it's just not linked*"  解决
+		```
+		brew unistall python3
+		brew install python3
+		```  
+	* 运行`Python3` (OS X默认配CPython2.7, 还有很多Python解释器)
+
+
+## First Program
+* 在交互环境下taste几条指令
+```
+>>> print("hello world")
+hello world
+>>> print(100+200)
+300
+>>> exit()
+```
+	* 可以输入变量名查看值 `x`
+
+* 文本编辑
+	* 一切的输出都需要print了，不能向交互式下的“100+200”得300了
+	* 直接运行 `.py` 文件
+		* 在文件头加入`#!/usr/bin/env python3
+`
+		* 然后 `chmod a+x ./try.py`
+		* 最后即可直接`./try.py` 直接执行
+	* I/O 
+		* print(内容) 
+			* 每个print之后都会换一行
+			* 可以 `print("hello","world")` 逗号空一格
+			* print(integer): `print("100+200=",100+200)`
+		* input()
+			* `x = input()` 将输入的字符串存入x
+			* 所以需要注意读入的一定是string，需要类型转换使用 `birth = int(s)`
+			* 可直接用input打印输入提示信息`x=input("your name:")`  (这是没有换行的)
+
+
+
+## 基本语法 
+* 基本
+	* `#` 表示注释 
+		* 如果有中文注释，在代码头加： `# -*- coding: utf-8 -*-`  和编码有关（防止出现乱码）
+	* `:` 之后缩进的为代码块（例如在循环之后，用空格缩进,之后也可以接 `pass` 表示空，但是又编译能通过）
+	* Python **大小写敏感**
+	* 运算： 
+		* `/` 浮点除（除出来的一定是浮点） 
+		* `//` 地板除
+* Type 变量
+	* integer  包括 `0x` 
+	* float 包括科学表示法 `1.2e-5`
+	* 字符串  允许print格式输出多行
+		```
+			print('''hello
+			world''')
+		```
+		* 字符串创建了之后，在内存中的内容是不在可能变了
+		* 而可以这样 `b=s.replace('a','A')` (新建一个内容，用A代替s中的a)
+	* Boolean: `True` or `False`  运算: `and` `or` `not` 
+	* `None`
+	* 变量定义： 
+		* 动态语言，不用先制定变量类型
+		* `name="Kan"` 即可 
+			* 所以实质上是 在内存开辟地方存`"Kan"`,然后name变量的指针指向这个地方
+			* `name1 = name` 干的也只是copy“指针”的意思
+ 	 
+* 字符串 & 编码 相关的函数
+	* 编码知识
+		* Unicode第一次统一所有的语言编码 -> UTF-8压缩变长编码
+		* 内存中统一使用Unicode，保存到外设UTF-8；所以在进程读取，和IO时会有编码转化的问题
+		* Python 采用Unicode
+	* `ord('A')` `chr(65)`   转换编码和字符
+	* 由于Python经常有外设的问题，所以有一些**编码转换的函数**（现在没怎么看）
+	* `len( )` 字符串长度
+	* 格式输出： `print ("Bye %s %s from" %(name,Author) )`
+* list & tuple
+	* list 相当于不用指定大小，随时可变的数组
+		* `len(author)` 测长度
+		* `author[-k]` 取倒数第k元素 
+		* 扩展list： `author.append('Konan')`
+		* 插入：`author.insert(第几个位置,'Holmes')`
+		* 删除： `author.pop(第几个)`
+		* 操作Eg:
+		```
+		>>> author=['Kan','Wu']
+		>>> author
+		['Kan', 'Wu']
+		>>> len(author)
+		2
+		>>> author[0]
+		'Kan'
+		>>> author[-1]
+		'Wu'
+		>>> author.append('Konan')
+		>>> author
+		['Kan', 'Wu', 'Konan']
+		```
+	* list 内元素类型可不同 甚至可以是list
+	``` 
+	>>> author2=['just try',author]
+	>>> author2
+	['just try', [5, 'Kan', 'Holmes', 'Konan']]
+	>>> author2[1][3]
+	'Konan'
+	``` 
+	* tuple 另一种数组，但是**一旦初始化就不能改变**
+		* `t=(2,3,5,7)`
+		* 为了解决 `t=(1)` 是1外加运算括号还是tuple的歧义，所以必须写成:`t=(1,)`
+		* tuple其实又是**可变的**，在如下的情况：
+		```
+		>>> t2=(1,2,["Kan","Wu"])
+		>>> t2
+		(1, 2, ['Kan', 'Wu'])
+		>>> t2[2][1]="Sherlock"
+		>>> t2
+		(1, 2, ['Kan', 'Sherlock'])
+		```
+		因为tuple中的指针一个都没变:)
+
+* 条件判断  
+* 循环
+	* `for name in names:` names是一个list
+		* 遍历list中的元素(names中每个元素指针依此赋给name)
+		* 综合list(range(n)) 使用
+		```
+		>>> list(range(10))
+		[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+		#注意是0-n-1的数
+		``` 
+	* `while 条件:`  只有条件成立一直运行
+* dict & set 
+	* dict Python内置的字典数据结构 （key-value对存储）
+	```
+	>>> d={"Kan":100,"Sherlock":99}
+	>>> d
+	{'Kan': 100, 'Sherlock': 99}
+	>>> d["Kan"]
+	100
+	```
+		* 增加key-value对
+		```
+		>>> d["Holmes"]=59
+		>>> d
+		{'Kan': 100, 'Sherlock': 99, 'Holmes': 59}
+		```
+		* 删除key-value对: `d.pop("Kan")`
+	* set  像定义域的概念（一堆key，没有顺序的概念，不重复）
+		* 定义： `s=set([一个list])`
+		* `s.add(k)` 增加一个
+		*`s.remove(k)` 删除
+		* s之间可以做&,| 运算 
+
+
+## 函数
+函数式编程
+
+* 调用函数
+	Python提供了很多函数库，可以使用，eg:
+	* `abs(x)` `max(5,6,10)` 
+	* 数据类型转换 `int()` 等
+	* 数据类型检查 `isinstance(x,(int,float))`
+	* 而Python的函数名，实际也就是指向函数体代码的指针，可以用 `a=abs`这样的来设定函数的昵称
+	* `imprt math` 导入math包
+* 定义函数
+	* `def 名字(参数名):` & Tab引导的代码块 &  返回值用return表示
+	* 可以返回多个值，以tuple的结构返回，并且在外面用`x,y=getposition()` 接tuple不同位置的元素
+* 参数
+	* 默认参数：
+		* `def power(x,n=2)` 计算x的n次方，这么定义之后，在没有输入n的时候，就默认计算平方
+		* 很方便，但是还是得注意注意
+	* 可变参数: 
+	* 关键字参数：
+	* **这些参数没怎么仔细看用法**: [介绍链接](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431752945034eb82ac80a3e64b9bb4929b16eeed1eb9000)
+* 递归函数
+	* 需要小心递归层数太深，栈溢出
+	* 尾递归： Python解释器没对它做优化，所以也可能溢出的
+## 小结
+	* 感觉Python结合函数式语言和面向对象的taste有点重
+## 引用 
+1. [liaoxuefeng的博客](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431608990315a01b575e2ab041168ff0df194698afac000)
+
