@@ -20,6 +20,8 @@
 		数据放在内存中（MySQL是磁盘中）
 
 ## Database Review
+1. [w3school 的一个关于如何写SQL的教程](http://www.w3school.com.cn/sql/index.asp)
+2. **有一本书:SQL必知必会**
 
 ## Related Blogs 
 * 0408_javascript.md  
