@@ -67,10 +67,23 @@
 host, storage以及他们之间的connectivity
 	* host 上有 HBA 与 storage相连 (cpu通过bus和HBA相连)
 	* connection: bus(常用协议有PCI,IDE,SCSI等)
+	* storage: 
 * Disk drive (略)
 	* Disk drive 的performance
-* Host   
+* Host    (***这一段其实没怎么看懂***)
 OS; drivers; Volume Manager; File system; App 
+	* volume manager 是 file system和 disk drive之间optional的一层
+
+		可以virtualization hard drives，也可以分区，每个分区用不同格式
+
+	* File system
+	不同的组织目录，文件的格式，eg FAT32,EXT2/3等
+		* 主要目的是什么？ 
+		* 主要做了什么？ 
+			* 有block，是最小的分配给data的一块
+			* 从 file -> LVM -> Hard disks 的一个分层的过程
+			* journal system 可恢复
+
 
 ### 数据保护: 引入RAID
 
