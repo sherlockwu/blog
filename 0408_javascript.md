@@ -29,7 +29,16 @@ eg. `<h1 align="center">` `<body bgcolor="yellow">`
 
 ```
 
-#### `<div>` `<span>`
+#### 网站布局 
+可使用 `<div>` 和 `<table来布局>`
+* `<div>`
+与head一起定义了很多 div的格式，然后来布局
+* `<table>`
+注: `<span>` 是用于组织一行内的元素的 
+
+框架： 
+？？？？？？？？？？
+
 
 #### 常用的一些标签
 * 标题，段落，链接，图像，空（换行）
@@ -78,7 +87,52 @@ eg. `<h1 align="center">` `<body bgcolor="yellow">`
 	* 打点用`<ul>`; 每个项用`<li>`
 	* 1，2，3 用`<ol>`
 	* definition（一个名词对应一段话） 用`<dl>`做打标签，每个名词用`<dt>`,定义用`<dd>`
- 
+
+* 交互式表单
+可用于让用户提供一些信息等
+`<form>`
+有文本域，单选按钮，复选框，提交按钮等
+```
+<form action="MAILTO:wukanustc@gmail.com" method="post">
+% action 表示submit之后处理数据的东西是什么（数据也会传给它）
+		<!-- Form -->
+			<!--name first/ last--> 
+			First name:
+			<input type="text" name="first name" />
+			<br />Last name: 
+			<input type="text" name="last name" />
+			<br />
+			% 纯输入文本
+	
+			<!--gender-->
+			<input type="radio" name="gender" value="male" /> 
+			Male <br /> 
+			<input type="radio" name="gender" value="female" />
+			Female <br />
+			% 单选项
+
+
+			<!-- visit purpose -->
+			Why contact me: <br />
+			<input type="checkbox" name="why contact" value="handsome" />
+			handsome <br />
+			<input type="checkbox" name="why contact" value="smart" />
+			smart <br />
+			% 复选项
+
+			<!--submit-->
+			<input type="submit" value="Submit" />
+			<input type="reset" value="Reset" />
+			% submit reset 按钮, value 是显示的内容
+
+		</form>
+
+```
+效果图：
+![3](./images/html_3.jpg)
+![4](./images/html_4.jpg)
+
+
 
 
 #### 一些样式的使用CSS（可以应用外部样式表支持）
