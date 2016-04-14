@@ -12,7 +12,7 @@
 
 1. 大致框架
 ``` 
-\documentclass{article}
+\documentclass{article}g/esr
 
 \begin{document}
 	hello world! 
@@ -165,6 +165,11 @@
 一些图片或表格，这一页放不下了，可以排版放下一页等
 * 保护脆弱命令
 上两个部分的细节都没怎么看
+
+* 插入图片：
+`\usepackage{graphicx}`
+`\includegraphics[width=0.5\textwidth]{images/architecture.jpg}`
+
 
 ## 数学公式
 这部分，现在不准备详细学习; 而且我认为这部分也应该主要以查询用 

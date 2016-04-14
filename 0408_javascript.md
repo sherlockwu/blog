@@ -30,17 +30,55 @@ eg. `<h1 align="center">` `<body bgcolor="yellow">`
 ```
 
 #### 网站布局 
-可使用 `<div>` 和 `<table来布局>`
+**可使用 `<div>` 和 `<table来布局>`** 
+
 * `<div>`
 与head一起定义了很多 div的格式，然后来布局
+
 * `<table>`
 注: `<span>` 是用于组织一行内的元素的 
 
-框架： 
-？？？？？？？？？？
+**框架:**
+
+* 在同一个窗口显示多个页面（多个html文档）
+* 标签： `<frameset>` 有rols, cols 两个属性
+* 一个frameset可以再做一个frame，符合框架
+eg 
+```
+	<frameset cols="30%,70%">
+		<frame src="test_1.html" />
+		<frame src="test_2.html" />
+	</frameset>
+```
+
+效果: 
+![5](./images/html_5.jpg) 
+![6](./images/html_6.png)
+* 一个用途：左右两个框架的时候，左边那个做导航栏，点一下，右边跳转到相应的位置
+
+** 内联框架 ** 
+* `<iframe src="" > </frame>`
+Eg.
+```
+	<iframe src="http://home.ustc.edu.cn/~wukanust", 
+	width="1000", height="800", frameborder="0">
+	</iframe>
+```
+* 还有可能页面链接，点开时，网页是在iframe中打开的
+[W3School的例子](http://www.w3school.com.cn/tiy/t.asp?f=html_iframe_target)
+
+**网页背景**
+对`<body>`的 `bgcolor=` 设置颜色 或 `background=` 设置背景色
+
+
+
+
+
+
 
 
 #### 常用的一些标签
+* [有用的总结](http://www.w3school.com.cn/html/html_quick.asp)
 * 标题，段落，链接，图像，空（换行）
 ```
 	<a href="http://home.ustc.edu.cn/~wukanust"> Kan's homepage </a>	
@@ -50,6 +88,8 @@ eg. `<h1 align="center">` `<body bgcolor="yellow">`
 	<!-- 注释 -->
 	&nbsp								%空格占位符
 ```
+
+
 * ![1](./images/html_1.jpg)
 * 链接的使用: 
 	* 做本页内的跳转
@@ -93,8 +133,8 @@ eg. `<h1 align="center">` `<body bgcolor="yellow">`
 `<form>`
 有文本域，单选按钮，复选框，提交按钮等
 ```
-<form action="MAILTO:wukanustc@gmail.com" method="post">
-% action 表示submit之后处理数据的东西是什么（数据也会传给它）
+		<form action="MAILTO:wukanustc@gmail.com" method="post">
+		% action 表示submit之后处理数据的东西是什么（数据也会传给它）
 		<!-- Form -->
 			<!--name first/ last--> 
 			First name:
@@ -133,6 +173,51 @@ eg. `<h1 align="center">` `<body bgcolor="yellow">`
 ![4](./images/html_4.jpg)
 
 
+
+
+
+#### HTML 高级教程
+* HTML `<head>`
+`<head>` 环境中可以包含脚本，html元信息等
+
+	* `<title>` 可定义页面在工具栏中的名字
+	* `<base>`
+	* `<link />` 表示页面与外部文档等的关系（用于样式）
+	* `<style>` 定义样式
+	* `<meta>` 描述页面的关键词
+	* `<script>` 定义脚本
+
+* HTML script (这就需要学习javascript了)
+* HTML 字符实体（一些保留字） 
+
+
+#### HTML 媒体
+* HTML object(辅助插件) 
+`<object>` 唤醒插件来支持多媒体播放
+* 真正用起来还是需要一点experience的
+
+#### XHTML (XML格式编写的HTML)
+其实就是programming语法要求更加严格一些了的 HTML
+
+#### HTML 5
+一些特性&一些新的内容
+
+* 对视频的很好的支持 `<video>`
+```
+	<video src="./videos/movie.mov" width="300" height="400" controls="controls">
+	</video>
+```
+其中controls表示控制部件
+[一个很好的视频播放和script控制的例子](http://www.w3school.com.cn/tiy/t.asp?f=html5_video_dom)
+
+* 音频播放类似
+```
+	<audio src="./videos/shadow.mp3" controls="controls">
+	</audio>
+```
+* 拖拽 一部分到另一部分
+* 还有听过新的特性，但是大多和js有关了
+[HTML5的介绍](http://www.w3school.com.cn/html5/index.asp)
 
 
 #### 一些样式的使用CSS（可以应用外部样式表支持）
