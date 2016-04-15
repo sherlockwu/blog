@@ -172,7 +172,7 @@ git 管理的是修改，而非文本
 	```
 * Feature 分支
 	当一个branch，不合并即需删除，用 `git checkout -D xxx`
-* 多人协作 （***git远程仓库使用***）
+* 多人协作 （***git远程仓库使用***）  这一部分还是很乱的！ 
 origin 相当于远程repo，而origin/dev 则表示这个远程repo上的dev分支
 	* git 和远端仓库 
 		* `git clone xxx yyy` 从远程库拷贝一个repo，创建成名为yyy的文件夹(默认在当前地址下创建一个同名的dir)
@@ -194,19 +194,24 @@ origin 相当于远程repo，而origin/dev 则表示这个远程repo上的dev分
 		* 如果`git pull`提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令`git branch --set-upstream branch-name origin/branch-name`
 		* `git remote`  
 	* 所以正常的工作流程:
-		* git push origin 
-		* 
+		* 第一次push（创建在远端的分支）`git push -u origin new_branch`
+		* 推送 `git push origin xxx`  (xxx分支之前一定已经和远端的某个分支建立了联系)
+		* `git pull origin 远程分支` 
 
 
 ## 标签管理
-什么叫标签？？ 
+什么叫标签： 给某次的commit取个名字
+
+* 创建标签  `git tag tag名 commit id`  可以附加一些评论信息&签名
+* 操作标签  
+删除`git tag -d 名` 
+推送`git push origin name`(远端删除，本地删除之后，`git push origin :refs/tags/name `) 
 
 
-## 使用 Github
-和普通的git 有区别么？？
+## 使用 Github（fork pull request等）
 
-## 自定义 Git??
-这段话什么意思
+## 自定义 Git
+* 在.gitignore 文件中 写下不需要同步的文件 
 
 ## 使用事项:
 * commit 的comment还是要详细一点： 至少文件名&大致修改内容：
