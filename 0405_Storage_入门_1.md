@@ -86,8 +86,32 @@ OS; drivers; Volume Manager; File system; App
 
 
 ### 数据保护: 引入RAID
+以disk set取代一整块的storage
 
+* RAID 实现
+	* 软件
+		OS级实现
+	* 硬件
+		硬件控制器，要负责data regeneration 
 
+* RAID Array的组成
+HDD&controller 
+
+* RAID 分级
+分级是由这个system使用了striping, mirroring和parity各技术来定义的
+	* striping 
+	* mirroring
+	* parity 
+	* RAID 0
+	* RAID 1 
+	* Nested RAID
+	* RAID 4 
+	* RAID 5 
+	* RAID 6
+
+* 不同RAID 之间的比较 
+
+* RAID 对 disk performance的影响
 
 
 

@@ -26,6 +26,7 @@
 * 使用
 让Navicat 连接localhost 的MySQL, 然后就能GUI下新建表，Query操作，看结果等了
 
+重启？？？？
 ## 再次登录出错
 * 无法连接
 ```
@@ -33,6 +34,13 @@ $mysql -h localhost -u root -p
 Enter password: 
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
 ```
+ * 直接使用SQL command line 吧
+ `show databases`
+ `use xxxdatabase`
+ 开始操作
+
+## 卸载MySQL 
+[按步骤](http://www.cnblogs.com/yjmyzz/p/4558389.html)
 
 ## Reference
 1. [简书的Blog](http://www.jianshu.com/p/fb695223d1a9)
