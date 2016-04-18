@@ -99,7 +99,7 @@ HDD&controller
 
 * RAID 分级
 分级是由这个system使用了striping, mirroring和parity各技术来定义的
-	* striping 
+	* striping    一个strip 就是所有HDD 的第一块？ this tech 能improve I/O  
 	* mirroring
 	* parity 
 	* RAID 0
