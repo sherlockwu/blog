@@ -51,13 +51,88 @@
 
 * `__slots__`
 	* 给object或class动态添加methods
+	eg
+	```
+		from types import MethodType
+
+		def f_author(self):
+			print("Author: Kan")
+
+
+		int_1.get_author = MethodType(f_author, int_1)
+		int_1.get_author()
+
+	```
+	注意这个MethodType;
+	给一个实例绑定的方法，对另一个实例是没有定义的
+	
+	* 给类绑定一个方法
+	直接写好，然后 `py.print_author = author` 
+	但是我发现，这个author中不能有self参数了（理论上应该也是，但是没看到规定）
+
+	* `__slots__` 定义了这个类的实例最多被赋予哪些变量
+	eg.
+	```
+		class py(object):
+			__slots__ = ("description", "print_author")
+	```
+	我发现这个对与method也有限制
+	这个定义的，对子类不影响；如果子类也定义了__slots__,那么限制集就是父子类限制之并
+
 
 * `@property`
-* 多重继承
-* 定制类
-* 枚举类
-* 元类
+	* 动态语言，要经常进行参数检查
+	* normal method 就是按 `set_version(1.0)` `get_version()` 来做
+		* 学了一个`raise` 报错
+		`if not isinstance(ver_in, float): 
+				raise ValueError("Not an number")`
+		
+		* 但是这个做法有点复杂
+	
+	* @property 
+		* 本质就是Python的这样一个扩展：
+		在正常set和get函数前面加上@property之后， 对这个实例访问的时候，就直接当成属性，不用严格的函数调用访问某个属性了
+		* eg.
+		定义的时候：
+		```
+		#get_version
+		@property 
+		def version(self):
+			return self.__version
+		# set_version 
 
+		@version.setter
+		def version(self, ver_in):
+			# judge
+			## set
+		
+		```
+		设置/访问属性的时候：
+		```
+		int_1.version = 1.2
+		print("Intepreter Version: %s" %(int_1.version) )  
+		``` 
+
+		* 如果不定义setter，那么就规定为了只读参数
+
+* 多重继承
+类的继承一定程度上表示类的细分，但是如果一切都细分，那么会变得异常复杂
+采用多重继承： 一个子类继承多个父类而来，从而可获得更多的属性细分
+	* MixIn 设计模式，通常将非主要分类，只是为了标示某种特性的类，命名为MixIn
+	* eg 
+	```
+		class panda(animal, runnableMixIn):
+	```
+
+* 定制类
+通过一些参数定义类的一些特性，有点多，并且我不太知道运用的场景是啥？
+
+* 枚举类
+真正的枚举类型，而非变量了
+[枚举类](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143191235886950998592cd3e426e91687cdae696e64b000)
+
+* 元类
+动态创建类，type(), metaclass()等内容
 
 
 
