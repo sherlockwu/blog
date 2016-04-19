@@ -34,6 +34,7 @@ $mysql -h localhost -u root -p
 Enter password: 
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
 ```
+ 
  * 直接使用SQL command line 吧
  `show databases`
  `use xxxdatabase`

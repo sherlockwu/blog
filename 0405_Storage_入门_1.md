@@ -99,15 +99,36 @@ HDD&controller
 
 * RAID 分级
 分级是由这个system使用了striping, mirroring和parity各技术来定义的
-	* striping    一个strip 就是所有HDD 的第一块？ this tech 能improve I/O  
+	* striping
+	一个stripe是分布在不同HDD上的一个横切  能improve I/O
+	strip 是一个disk上的连续寻址的单元   
 	* mirroring
+	copy但实时同步，不同于 backup
+	优点： 快速恢复
+	缺点：对storage capacity要求高，另外，对write performance 也有影响
 	* parity 
-	* RAID 0
-	* RAID 1 
-	* Nested RAID
+	对于striped disks，使用类似校验位的存储（一般是），及时恢复一个stripe中某一位的错误
+	![1](./images/storage_1.jpg)
+	其中，每列表示一个disk，
+
+	一个各级RAID介绍的总的图：
+	![2](./images/storage_2.jpg)
+	
+	* RAID 0  特点，利用stripe把I/O提上去了
+	* RAID 1 利用mirroring，把故障修复加进去了
+	* Nested RAID 
+		
+		* RAID 0+1
+		* RAID 1+0 有区别的，虽然我还没太弄懂
+		* 一个是先mirror，然后再分别stripe； 一个是先stripe，然后再对应的每block mirror
+	
+	* RAID 3  用了parity的技术，但是一大特点是一个stripe必须同时更新（适合large volumes data store） 
 	* RAID 4 
+	和RAID 3 类似，但是支持了stripe内单个block的修改 	
 	* RAID 5 
+	和RAID 4 类似，但是, parity blocks 可以不放在一个特定的HDD中了，可以分布在各HDD中
 	* RAID 6
+	用了两位parity，可以恢复两位错了
 
 * 不同RAID 之间的比较 
 
