@@ -170,9 +170,35 @@
 `\usepackage{graphicx}`
 `\includegraphics[width=0.5\textwidth]{images/architecture.jpg}`
 
+一般是插入eps 文件
+[插入图片的教学](http://blog.csdn.net/shenlan211314/article/details/6251776)
+
+* 表格：
+有个PPT 很helpful（台湾的）
+* 上下标
+$A_{k}$
 
 ## 数学公式
 这部分，现在不准备详细学习; 而且我认为这部分也应该主要以查询用 
+[特别好的数学公式网站](http://mohu.org/info/symbols/symbols.htm)
+
+* 条件等式:
+```
+$$
+X(m,n)=
+\begin{cases}
+x(n),\\
+x(n-1)\\
+x(n-1)
+\end{cases}
+$$
+```
+
+* `\mbox{}`
+表示在$$公式里面按照文字内容显示
+* 字体颜色
+`\usepackage{color}`
+然后`{color{red} 内容}`
 
 ## 索引和参考文件的生成，以及一些包的使用
 * 引用、索引，页眉页脚等
@@ -184,6 +210,13 @@
 ## 定制latex
 * 新建命令、环境和宏包
 
+
+## 多行注释
+`\begin{comment}` 
+`usepackage{verbatim}`
+
+## Beamer 
+用来做PPT的 
 
 ## 总结
 
