@@ -272,7 +272,26 @@ SAN 感觉像是集中管理的分布式storage而已，devices之间用FC连接
  * 总结：   SAN架构，FC是它的主干
 
 ### Network-Attached Storage
-* 局域网中，共享文件？？？
+局域网中，用于基于IP分享file的设备！ 特点是： 特定设备(优化支持I/O的OS)/ 快速共享
+基于TCP/IP 以及一些文件传输协议eg. NFS,CIFS,FTP （有点像局域网中的shared storage了）
+* 和General-Purpose Server 的对比
+	对storing, retrieving, accessing files 有了优化； network中的server就不再需要因fiel accessing带来的bottleneck了
+* NAS File I/O
+所有的I/O都是 file-level 的，只需要提供file标识，在NAS中转成对应的block访问
+	* File System 
+	例子还需要看一个，我认为
+		* file system accessing 
+		1. mount   建立一个link between file S and OS 
+		2. 所有的file 以 树结构组织，存在leaf 
+		3. 同时访问一个file 有保护机制  
+		4. Distributed File system 和 FTP, NFS这些一起实现remote file accessing(从server 到 storage array)  
+* NAS 的components
+	* 
+* NAS Implementations
+* NAS File-Sharing Protocols
+* NAS I/O 操作
+* 影响NAS 的因素
+* EMC Celerra 的例子 
 
 ## Introduction to Business Continuity 
 
