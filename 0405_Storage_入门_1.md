@@ -199,7 +199,7 @@ scale不好，另外受一些因素的影响比较严重
 
 ### SAN(Storage Area Networks)
 Data Center Storage需求： 1) 随时可访存； 2) 能和一般任务集成 3） scaliability
-SAN 感觉像是集中管理的分布式storage而已，devices之间用FC连接，然后访问storage array？（scalability十分的好）
+SAN 感觉像是集中管理的分布式storage而已，devices之间用FC连接，然后访问storage array（scalability十分的好） 感觉就是storage和可能访存（网络远端用特殊设备support）的device之间构成的高速LAN
 
 * Fibre Channel 
 	连接各hosts，协议发展，具体的参数还没什么概念
@@ -274,6 +274,7 @@ SAN 感觉像是集中管理的分布式storage而已，devices之间用FC连接
 ### Network-Attached Storage
 局域网中，用于基于IP分享file的设备！ 特点是： 特定设备(优化支持I/O的OS)/ 快速共享
 基于TCP/IP 以及一些文件传输协议eg. NFS,CIFS,FTP （有点像局域网中的shared storage了）
+
 * 和General-Purpose Server 的对比
 	对storing, retrieving, accessing files 有了优化； network中的server就不再需要因fiel accessing带来的bottleneck了
 * NAS File I/O
@@ -286,10 +287,27 @@ SAN 感觉像是集中管理的分布式storage而已，devices之间用FC连接
 		3. 同时访问一个file 有保护机制  
 		4. Distributed File system 和 FTP, NFS这些一起实现remote file accessing(从server 到 storage array)  
 * NAS 的components
-	* 
+	NAS head负责网络接口支持，然后hold 特殊的访存OS等
+	Storage Array 则只负责存储 
 * NAS Implementations
+	* Integrated NAS 
+		一个head 一个 array 就封装成一个 NAS    
+	* Gateway NAS 
+		NAS head 和 storage arrays 分开，中间可任意搭配 
+	* Integrated NAS Connectivity 
+	* Gateway NAS Connectivity 
+		NAS一般是嵌到SAN中的
+		NAS head 更像是远端访问（IP）在SAN中的一个代理
+
 * NAS File-Sharing Protocols
+	讲NFS CIFS 远端host如何远程访问storage
+	* NFS
+		先mount  UDP or TCP网络连接， 然后RCP网络连接
+	* CIFS
+		似乎锁也很重要
 * NAS I/O 操作
+	* 过程： host 将file access命令包进TCP/IP -> 发给NAS head -> 理解成block access 访存 -> 得到结果 -> 处理成file的，然后再发回
+	* host 有几个操作，操作file system
 * 影响NAS 的因素
 * EMC Celerra 的例子 
 
