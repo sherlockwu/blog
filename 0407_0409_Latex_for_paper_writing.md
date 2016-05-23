@@ -211,12 +211,18 @@ $$
 * 新建命令、环境和宏包
 
 
+
 ## 多行注释
 `\begin{comment}` 
 `usepackage{verbatim}`
 
 ## Beamer 
 用来做PPT的 
+## 使用word进行拼写检查
+1. `latex2rtf XXX.tex` (直接转化主文件就行)
+	`sudo brew install latex2rtf` 安装
+2. 然后用microsoft word 打开即可
+
 
 ## 总结
 
