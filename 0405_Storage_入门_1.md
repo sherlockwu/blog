@@ -309,7 +309,53 @@ SAN 感觉像是集中管理的分布式storage而已，devices之间用FC连接
 	* 过程： host 将file access命令包进TCP/IP -> 发给NAS head -> 理解成block access 访存 -> 得到结果 -> 处理成file的，然后再发回
 	* host 有几个操作，操作file system
 * 影响NAS 的因素
+network latency 是一个很大的影响因素了
+还有很多的影响因素，使用VLAN等可以改善
+还有directory services server？  这是什么东西？   link aggregation 
 * EMC Celerra 的例子 
+* Summary SAN 和 NAS 是会收敛到一起的
+随着performance, management, file sharing 提升，networking和storage的综合考虑越来越多
+
+### IP-SAN 
+成熟的一个解决方案  SAN block I/O NAS file I/O 
+所以应该就是  IP based SAN 
+两种实现方案 iSCSI/ FCIP 
+![two solutions](./images/storage_8.jpg)
+* iSCSI
+	需要host端有iSCSI HBA，然后和FC SAN中的 iSCSI Gateway通信，由这个Gateway进行 IP packets -> SCSI I/O的转换
+	* Host端采用general NIC会需要占用CPU，用HBA比较好
+	* Topo: 可以完全基于IP（都是端口来转化），或者需要bridge来进行IP，FC的转换
+	* 协议栈： SCSI->iSCSI->TCP...
+	* iSCSI discovery  有一个iSNS server 负责registration和回答query
+	* iSCSI names
+	* 每个iSCSI的交互以 PDU为基础（PDU可以被拆到不同packets）
+	* 一系列确保iSCSI PDUs 重排的措施
+	* SCSI还有错误恢复机制
+* FCIP
+	* 远距离的FC 互联起来  IP支持 FC block data 的传输（tunneling）
+	* 有FCIP gateway 支持tunneling
+* Summary  就感觉 IP SAN还是使得distributed SAN能够统一
+
+### Content-Addressed Storage
+有一类data长期被使用但是fixed content，如何管理这种data CAS
+data和它的attributes 分开存储。 总的感觉可以减少 存储相同data的份数？ 
+* Fixed Content and Archives   没太看懂 不同数据应该被怎样不同对待  archives??? 
+一个 content 被 archive多次？   
+* CAS 好处？   
+	* content authenticity？？  什么意思？？？ hash 
+	* content integrity  content 不会被修改 什么时机 check integrity？ 
+	* location independence  一个 application查询data根据identifier？ 
+	* SiS 同一个内容的 object 只存一次，后面的只被赋予pointer 
+	* Retention Enforcement data object 还有meta-object 存储object的各种信息
+	* CAS 中每个 object 都被backed up
+	* 剩下两个 不知道是什么？？？ 
+* 所以核心是 CAS 到底是什么？   原来的object都是按照location去在system中寻找他们，而现在试图抽象成，使用cotent相关的identifier就能定位这个object 存在哪里（是一个老技术）
+[WikiPedia](https://en.wikipedia.org/wiki/Content-addressable_storage)
+
+
+
+
+
 
 ## Introduction to Business Continuity 
 

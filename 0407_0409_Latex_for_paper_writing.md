@@ -224,6 +224,18 @@ $$
 2. 然后用microsoft word 打开即可
 
 
-## 总结
+## 一个改cls模板的参考 
+[很好的说明](http://icl.pku.edu.cn/member/yujs/bsdfiles/html/Template4CJK.html)
+改页脚
+```
+\maketitle
+\setcounter{page}{0}
+\thispagestyle{empty}
+```
 
-## 引用 
+## Sublime Text 下
+[简书的一个很好的教程](http://www.jianshu.com/p/6e678eade0da)
+[这个也还helpful](http://www.readern.com/sublime-text-latex-chinese-under-mac.html)
+
+## References
+
