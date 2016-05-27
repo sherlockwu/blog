@@ -321,6 +321,7 @@ network latency 是一个很大的影响因素了
 所以应该就是  IP based SAN 
 两种实现方案 iSCSI/ FCIP 
 ![two solutions](./images/storage_8.jpg)
+
 * iSCSI
 	需要host端有iSCSI HBA，然后和FC SAN中的 iSCSI Gateway通信，由这个Gateway进行 IP packets -> SCSI I/O的转换
 	* Host端采用general NIC会需要占用CPU，用HBA比较好
@@ -339,10 +340,11 @@ network latency 是一个很大的影响因素了
 ### Content-Addressed Storage
 有一类data长期被使用但是fixed content，如何管理这种data CAS
 data和它的attributes 分开存储。 总的感觉可以减少 存储相同data的份数？ 
+
 * Fixed Content and Archives   没太看懂 不同数据应该被怎样不同对待  archives??? 
 一个 content 被 archive多次？   
 * CAS 好处？   
-	* content authenticity？？  什么意思？？？ hash 
+	* content authenticity
 	* content integrity  content 不会被修改 什么时机 check integrity？ 
 	* location independence  一个 application查询data根据identifier？ 
 	* SiS 同一个内容的 object 只存一次，后面的只被赋予pointer 
@@ -351,15 +353,20 @@ data和它的attributes 分开存储。 总的感觉可以减少 存储相同dat
 	* 剩下两个 不知道是什么？？？ 
 * 所以核心是 CAS 到底是什么？   原来的object都是按照location去在system中寻找他们，而现在试图抽象成，使用cotent相关的identifier就能定位这个object 存在哪里（是一个老技术）
 [WikiPedia](https://en.wikipedia.org/wiki/Content-addressable_storage)
-
-
-
-
-
-
-## Introduction to Business Continuity 
+* CAS Architecture
+	现在主要是对怎么实现CAS的不太清楚
+	architecture中主要应该关系 CAS system的架构，它也提供了容错等功能
+* Object Storage and Retrieval in CAS 
+	user store 或 retrieve 的API不改变（仍然是通过filename访存） 由Application server 负责hash计算content address等
+	说了整个API的转化过程，但是还是没介绍system是怎么实现CAS的
+* CAS 例子
+	healtch care/ finance 
+	似乎storage还有其他的一些需求
 
 ## Conclusion 
+storage似乎应该是一个不断 了解存储需求，然后学习存储技术的过程
+还是要积累
+
 
 ## Reference
 [1] Information Storage & Management.pdf

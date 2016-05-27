@@ -232,6 +232,17 @@ $$
 \setcounter{page}{0}
 \thispagestyle{empty}
 ```
+## 生僻字处理  
+根本应该是通过改字库解决的，如果不想的话，则尝试如下：
+[理论上字库应该都能解决](https://www.zhihu.com/question/46546403)
+[这篇不错](http://bbs.chinaunix.net/thread-1471443-1-1.html)
+但是我还是没想好该怎么尝试 
+`\author{吴\ \hbox{\scalebox{0.4}[1]{彳}\kern-.1em\scalebox{0.3}[1]{干}\scalebox{0.4}[1]{亍}}}`
+
+## 公式加序号
+$$ 	\eqno{(1)}$$  手动加序号
+将超链接的颜色去掉：
+`\RequirePackage[colorlinks, linkcolor=black, anchorcolor=black, citecolor=black]{hyperref}`
 
 ## Sublime Text 下
 [简书的一个很好的教程](http://www.jianshu.com/p/6e678eade0da)
