@@ -234,6 +234,7 @@ UNION 将多个查询的结果，组合成一个结果集而已（会合并相�
 ORDER BY 可以用在所有UNION之后
 	
 ## 插入数据 
+* 新建database `CREATE database xxx`
 * INSERT 
 插入行 or 插入一个查询的结果（多行）
 

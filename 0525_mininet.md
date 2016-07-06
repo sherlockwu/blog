@@ -22,7 +22,8 @@ wireshark本质上应该是一个从内核driver支持起来的app，所以应�
 1. wireshark
 	1. 安装`apt-get install wireshark` 
 	2. 使用ssh提供的x11 GUI 共享功能 来 提供 wireshark 所需的 GUI （在ssh客户端显示）
-	[参考简书的blog](http://www.jianshu.com/p/400d4430a74a) 
+	[参考简书的blog](http://www.jianshu.com/p/400d4430a74a)
+	 
 	3. 
 
 

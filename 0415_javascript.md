@@ -63,10 +63,27 @@
 ## 浏览器
 
 ## jQuery
+jQuery 是JS 的一套lib, 有一个很好的解释js, jQuery 关系的说法: 
+![js_1](./images/js_1.jpg)
 
+* `$` 应该是jQuery的一个函数，他针对不同的输入有不同的动作， (例如，用传入的string生成一个jQuery object)
+* JS, jQuery 都是下载到本地, 有browser 解释执行
+* DOM操作 ？  和html docs interact 
+	* DOM 节点？   html文件中的某个标签，就对应一个节点
+	* jQuery 取DOM节点，会对它进行包装，得到一个jQuery对象
+	* DOM操作:
+		* 
+* `$()`
+	* eg. `$("button")` 选中 `<button> </button>` 节点, `$("#box")` 选中id=box的节点
+	* 
+
+
+参考的文献 [一个综述的Blog](https://www.pureweber.com/article/jquery-at-a-glance/)
 ## underscore
 
 ## Node.js
+Javascript （backend）执行的一个解释器
+
 
 ## Conclusion
 

@@ -11,7 +11,22 @@ echo "hello world"
 ## 然后改成可执行
 ` chmod 777 xxx`
 
-## 如何写一个登陆脚本？
+## 下面是一本书的学习
+### 准备工作
+* 解释执行
+
+### 数值运算
+除了shell语法自带的几个运算，bc, expr, awk 命令都是被调用的存在/usr/bin下的命令
+### 布尔运算
+### 字符串操作
+### 文件操作
+### 文件系统操作
+### 进程操作
+### 网络操作
+### 总结
+
+## 例子
+### 如何写一个登陆脚本？
 * 一种方法是使用public key登陆 见 [public](http://serverfault.com/questions/241588/how-to-automate-ssh-login-with-password) 
 * 一个方案
 使用sshpass 同上，但是 OSX 显然不会支持，因为不安全
@@ -34,3 +49,4 @@ echo "hello world"
 
 ## 参考教材 
 [教材](http://tldp.org/LDP/abs/html/)
+[一本书](http://www.tinylab.org/open-shell-book/)

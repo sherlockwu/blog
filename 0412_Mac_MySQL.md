@@ -1,7 +1,7 @@
 # Mac 下 MySQL安装
 本Blog将记录在Mac下安装MySQL的过程
 
-## 安装
+## 安装（尝试使用navicat 管理）
 * 下载
 [MySQL官方下载地址](http://dev.mysql.com/downloads/mysql/)
 	下载下来的应该是没有GUI的纯粹的一个DBMS（虽然应该也是够用了），还是用了Navicat 进行了connect之后再进行管理
@@ -42,6 +42,21 @@ ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: Y
 
 ## 卸载MySQL 
 [按步骤](http://www.cnblogs.com/yjmyzz/p/4558389.html)
+
+## 本机 (直接CLI管理)
+1. dmg 安装 `root@localhost: Yf!wNi3pL%Ku`
+2. 设置开机启动项？  不知道 ./mysql 和 mysqlserver start 有没有什么区别？ 
+3. `ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.` 
+    [一个解决方案对我不work](http://fgyong.cn/2016/01/28/MAC-重置MySQL-root-密码/)
+4. 直接 `SET PASSWORD = PASSWORD('123');` 解决问题的 
+[参考MySQL的官方说明](https://dev.mysql.com/doc/refman/5.6/en/alter-user.html)
+5. 设置alias 
+没有发现 .bashrc  在.bash_profile 添加 alias 不合适 在/etc/bashrc 中修改还是不合适 [1](http://jingyan.baidu.com/article/22fe7ced17c1543002617f9c.html) [2](http://shunfengwei.blog.163.com/blog/static/17522511720122299241143/)
+发现，由于我一直用的zsh，所以直接改.zshrc 就可以
+添加： `alias mysql='/usr/local/mysql/bin/mysql'` 即可  [zsh](http://hczhcz.github.io/2014/03/27/oh-my-zsh.html)
+[另附OSX下安装zsh的一个教程](http://www.jianshu.com/p/24a0ded2e3ba)
+6. 所以，现在还是 `mysql -h localhost -u root -p` 登陆
+
 
 ## Reference
 1. [简书的Blog](http://www.jianshu.com/p/fb695223d1a9)
