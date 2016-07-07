@@ -68,15 +68,46 @@ jQuery 是JS 的一套lib, 有一个很好的解释js, jQuery 关系的说法:
 
 * `$` 应该是jQuery的一个函数，他针对不同的输入有不同的动作， (例如，用传入的string生成一个jQuery object)
 * JS, jQuery 都是下载到本地, 有browser 解释执行
+* `$()`
+	* eg. `$("button")` 选中 `<button> </button>` 节点, `$("#box")` 选中id=box的节点
 * DOM操作 ？  和html docs interact 
 	* DOM 节点？   html文件中的某个标签，就对应一个节点
 	* jQuery 取DOM节点，会对它进行包装，得到一个jQuery对象
 	* DOM操作:
-		* 
-* `$()`
-	* eg. `$("button")` 选中 `<button> </button>` 节点, `$("#box")` 选中id=box的节点
-	* 
+		* 操作还有 属性的，但是我还没有一个具体的感觉
+* 事件绑定
+	* 对于$ 如何制定 相应的 节点还不清楚? 
+* Ajax
+	* 异步 Ajax and XML 
 
+#### 一个教程: [链接](http://jsgears.com/thread-63-1-1.html)
+
+* 实际上 jQuery是一套主要针对DOM文件的JS 库， 核心是： “快速获取元素” 然后 “做一些事情”
+* Overview
+	* eg. `$("div")` 选取所有div元素（然后可以直接对元素s批处理）
+* 选取元素
+	* 采用的是 CSS的 元素标记语法？？？ 
+	* 一些例子: 
+		1. `$("#body")` <div id="body"> </div>
+		2. `$("div#body")` 选取id为body的div
+		3. 一些语法还是挺特殊的
+* 做一些事情
+	处理DOM节点(add/rm); 事件处理; 视觉效果; 传送表单内容等
+	讲了很多很多的例子, 一个jSON表格的例子: 
+	![js_2](./images/js_2.jpg)
+* html 的class 除了可以标志属于同一class的节点拥有相同的一些实质外，可以在js中帮助我们选东西
+* jQuery可以连续使用多个函数处理选取的元素
+	* 每个函数处理完其实 也就是一些 节点，第二个函数接着处理这些节点就可以
+		* eg. `$("div").hide().css("color", "blue").slideDown();`
+	* 注意看教程的介绍
+* **document ready**
+	在网页下载完成后执行一些操作
+	```
+	$(document).ready(function() {  
+     alert('您好，歡迎來到 jsGears.com ～');  
+    });
+    ```
+    选取document, 在他ready的时候执行... 
 
 参考的文献 [一个综述的Blog](https://www.pureweber.com/article/jquery-at-a-glance/)
 ## underscore
