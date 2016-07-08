@@ -76,6 +76,8 @@ Q11     : tar
 
 Q12     : 如何看当前路径
         pwd 
+Q13     : 如何打开html的东西
+        open （相当于双击这个文件）
 
 ## Reference 
 [一个PPT](https://lug.ustc.edu.cn/OpenCourse/Lesson8/lesson8.pdf)
