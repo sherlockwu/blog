@@ -33,10 +33,58 @@ docker 使用了 AUFS 技术
 
 ## Motivation？ 
 增加share的东西, 其实是另一种idea，和hardw/ vir 不是一个思路
+几个Blog: [1](https://zhuanlan.zhihu.com/p/19693311) [3](https://zhuanlan.zhihu.com/p/21104002)  [5](http://www.wenwenyun.com/a/tip/2014/0924/533.html)
 
+#### 什么是 docker [1](https://www.docker.com/what-docker)
+* docker 把一个app打包进一个container  （虽然我不知道这个 打包需要干哪些事情？）
+* 一个很重要的 image的概念
+* 和虚拟机比较: 主要就差在是否vir guest OS 
+* 适合 distributed applications   scale 等  
+（这个page的介绍怎么这么生涩！）   [很好的教程](https://docs.docker.com/engine/getstarted/step_six/)
+* ***什么是docker images等***    
+	* `docker run hello-world`  run 标示create并运行一个 docker container, hello-world表示应该用这个image导入container
+	* **image** 本质是一个filesystem和一些runtime 参数
+* 写Dockerfile
+	* dockerfile  描述是什么软件被烧进这个image; 并且告诉软件，它运行的env，和需要执行的命令
+	* From 标示，本image基于哪个image
+	* RUN 运行一些命令（似乎是在host OS上运行）
+	* CMD  这个还真不太知道是干什么的？
+	* 我的第一个Dockerfile:
+		```	
+		FROM docker/whalesay:latest
+
+		RUN apt-get -y update && apt-get install -y fortunes
+		CMD /usr/games/fortune -a | cowsay
+		``` 
+* build image:
+	* 命令: `docker build`
+	* build 的过程 
+		1. load From了的images
+		2. 然后RUN
+		3. 然后按CMD 启动等？  
+* 从现有的image tag,push 到Docker hub 
+	* 这个什么含义？ 给现有的image tag成一个新的副本，然后 push到hub上 
+	* 然后可以通过 run 来pull 远程 rep 下的 image
 
 ## how to use it?   尝试 docker 
+docker engine 本身就在linux distributions中 
 
+* docker deamon ? docker cml interface? 
+* `docker run hello-world`   实际上docker有一些images 在docker hub中
+	* 通过这个命令的介绍，Docker CLI 和 Deamon 是这么运行的: 
+		1. The Docker client contacted the Docker daemon.
+ 		2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+ 		3. The Docker daemon created a new container from that image which runs the executable that produces the output you are currently reading.
+ 		4. The Docker daemon streamed that output to the Docker client, which sent it to your terminal. 
+ 	* `docker run -it ubuntu bash`  似乎是可以运行ubuntu！！！！！！！！
+* `docker ps -a` 可以看到所有的container 
+
+#### 看几个例子
+[参考网站](https://docs.docker.com/engine/tutorials/)
+
+### 看第二个Blog  [2](https://zhuanlan.zhihu.com/p/20592511)
+* 讲的很好: container 抽象了OS，而vm 抽象了硬件层
+* 
 
 ## 看一下什么是 KVM？ 
 [相关的paper](https://www.kernel.org/doc/ols/2007/ols2007v1-pages-225-230.pdf)
