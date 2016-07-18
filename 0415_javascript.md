@@ -66,7 +66,6 @@
 jQuery 是JS 的一套lib, 有一个很好的解释js, jQuery 关系的说法: 
 ![js_1](./images/js_1.jpg)
 
-* `$` 应该是jQuery的一个函数，他针对不同的输入有不同的动作， (例如，用传入的string生成一个jQuery object)
 * JS, jQuery 都是下载到本地, 有browser 解释执行
 * `$()`
 	* eg. `$("button")` 选中 `<button> </button>` 节点, `$("#box")` 选中id=box的节点
@@ -84,7 +83,7 @@ jQuery 是JS 的一套lib, 有一个很好的解释js, jQuery 关系的说法:
 
 * 实际上 jQuery是一套主要针对DOM文件的JS 库， 核心是： “快速获取元素” 然后 “做一些事情”
 * Overview
-	* eg. `$("div")` 选取所有div元素（然后可以直接对元素s批处理）
+	* eg. `$("div")` 选取所有div元素（然后可以直接对元素批处理）
 * 选取元素
 	* 采用的是 CSS的 元素标记语法？？？ 
 	* 一些例子: 

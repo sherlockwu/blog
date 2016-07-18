@@ -26,6 +26,10 @@ virtualbox 可以开启 shared clipboard 复制，粘贴
 
 调节virtual box linux 的分辨率 有一个很好的教程 [sina blog](http://blog.sina.com.cn/s/blog_489988100102ux6e.html)
 
+### 安装 zsh
+参照? 
+目前不能自动打开，打开还是正常的shell
+
 ### rpm 包软件管理程序
 wget 很好用  wget+ 地址
 [使用参考](http://blog.csdn.net/neohuo/article/details/600339)
