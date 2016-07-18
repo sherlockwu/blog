@@ -6,8 +6,11 @@ jQuery 的一些资料在js的笔记中
 2. `$.getJSON()`   The getJSON() method is used to get JSON data using an AJAX HTTP GET request.
 3. `keycode == 13` 表示按了 enter键
 	类似的还有 onKeyup onKeypress 事件 [参考网站](http://blog.sina.com.cn/s/blog_8697aaed0100zmg8.html)
-4. `ajax` 方法   [参照这个](http://www.w3school.com.cn/jquery/ajax_ajax.asp)
+4. `$.ajax` 方法   [参照这个](http://www.w3school.com.cn/jquery/ajax_ajax.asp)
 	通过HTTP 请求加载远端数据 
+	还有一个所写的 $.getJSON() 以JSON格式   [参考](http://api.jquery.com/jquery.getjson/)
 
+## JSON 
+[一个教程](http://www.w3school.com.cn/json/json_intro.asp)
 
 ## Ref
