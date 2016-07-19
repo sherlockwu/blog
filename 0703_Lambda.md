@@ -62,7 +62,6 @@ AWS Lambda 核心应该是 你只需要 upload code(针对不同event，调用�
 		1. event: dict or list ... 表示events 
 		2. context: LambdaContext 类型的  不知道能干什么？ 
 		3. 可以return 一些values
-	2.
 
 #### Open Whisk
 Open Whisk?  还有其他项目么？ 
