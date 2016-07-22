@@ -26,6 +26,9 @@ virtualbox 可以开启 shared clipboard 复制，粘贴
 
 调节virtual box linux 的分辨率 有一个很好的教程 [sina blog](http://blog.sina.com.cn/s/blog_489988100102ux6e.html)
 
+### 安装 nodejs
+参考这个网址就可以 [参考]()http://www.runoob.com/nodejs/nodejs-install-setup.html)
+
 ### 安装 zsh
 参照? 
 目前不能自动打开，打开还是正常的shell
