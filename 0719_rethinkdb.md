@@ -42,7 +42,9 @@
 	6. `insert` document 
 	7. `filter` 过滤一些documents
 	8. 
-* 
+
+## 一些积累:
+* rethinkdb db 下的 server_status 表存了创建的db 实例的信息  
 
 ## Ref 
 1. [官方介绍](https://www.rethinkdb.com)

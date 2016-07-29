@@ -27,6 +27,11 @@ echo "hello world"
 ### 网络操作
 ### 总结
 
+### 一些积累
+* dirname string   删除string中最后一个`/`之后的内容
+* `bash_source[0]`  几个参考 [1](http://stackoverflow.com/questions/421772/how-can-a-bash-script-know-the-directory-it-is-installed-in-when-it-is-sourced-w) [2](http://stackoverflow.com/questions/59895/can-a-bash-script-tell-which-directory-it-is-stored-in)
+* set  [参考说明](http://linuxcommand.org/lc3_man_pages/seth.html)
+* 
 
 ## 例子
 ### 如何写一个登陆脚本？
