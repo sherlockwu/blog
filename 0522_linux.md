@@ -90,6 +90,13 @@ Q13     : 如何打开html的东西
 Q14     : 如何使用Ctags
         安装ctags -> `ctags -R` 即可
 
+Q15     : 后台运行 &  连续指令用 ;   [参照](http://blog.sina.com.cn/s/blog_90546d6f0101en9y.html)  [参照2](http://www.cnblogs.com/balaamwe/archive/2012/03/15/2397998.html)
+        eg: `./test A & ; ./test B &`
+
+Q16     : 杀死后台process [参照](http://blog.sina.com.cn/s/blog_90546d6f0101en9y.html) 
+        1. ps 查看这个process的PID 
+        2. kill PID
+
 ## Reference 
 [一个PPT](https://lug.ustc.edu.cn/OpenCourse/Lesson8/lesson8.pdf)
 
