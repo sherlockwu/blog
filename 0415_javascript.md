@@ -114,6 +114,10 @@ jQuery 是JS 的一套lib, 有一个很好的解释js, jQuery 关系的说法:
 ## Node.js
 Javascript （backend）执行的一个解释器
 
+## 隐藏， 显现
+对于button， 这个可以通过它的 style属性中的display 参数来设置
+`<button id="hidebutton" style="display:none;"> Hide Button </button>` 
+然后 `$("#hidebutton").style.display = "block"; ` 在js中进行设置
 
 ## Conclusion
 

@@ -16,6 +16,17 @@
 
 #### json 
 * json.loads() 之后，就可以使用dict读法来读json文件中的数据
-* 
+* JSON.stringify()
+
+#### 使用Python 产生随机数 [1](http://blog.csdn.net/pipisorry/article/details/39086463)   [2](http://blog.csdn.net/yongh701/article/details/46912391)
+* 使用当前时间
+```
+import datetime;  
+
+nowTime=datetime.datetime.now().strftime("%Y%m%d%H%M%S");#生成当前时间  
+
+random_n = str(nowTime)
+```
+
 
 ## Ref
