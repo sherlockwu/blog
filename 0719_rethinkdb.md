@@ -45,6 +45,9 @@
 
 ## 一些积累:
 * rethinkdb db 下的 server_status 表存了创建的db 实例的信息  
+* 更新一项的内容: `r.db().tb().filter({'account': 'kanwu'}).update({'id': 'xxxx'}).run(conn)` 
+* 查出一个doc的特定位置的内容: 
 
 ## Ref 
 1. [官方介绍](https://www.rethinkdb.com)
+2. [一个有用的Blog介绍](http://www.zcfy.cc/article/rethinkdb-cookbook-for-javascript-484.html#filtering)
