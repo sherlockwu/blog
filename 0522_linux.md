@@ -25,6 +25,7 @@ deb-src http://mirrors.ustc.edu.cn/ubuntu trusty main restricted
 virtualbox 可以开启 shared clipboard 复制，粘贴
 
 调节virtual box linux 的分辨率 有一个很好的教程 [sina blog](http://blog.sina.com.cn/s/blog_489988100102ux6e.html)
+(每次出现异常只需要 optical disk remove, 重新配置一下就好！)
 
 ### 安装 nodejs
 参考这个网址就可以 [参考]()http://www.runoob.com/nodejs/nodejs-install-setup.html)
@@ -55,6 +56,7 @@ Q 2     ：如何搜索
 
 Q 3     : 搜索文件
         find ./ -name '名字'
+
 Q 4     : 安装Latex & ST
         http://www.readern.com/sublime-text-latex-chinese-under-mac.html
 
@@ -76,7 +78,7 @@ Q 9     : chmod 使用
         chmod 77 file   修改为都可以
 
 Q10     : grep
-        grep '...' ./ss  找出 ss中包含某字符串的那几行
+        grep -nr xxxx *  找出 ss中包含某字符串的那几行
 
 Q11     : tar
         tar zxvf 文件    来解压
@@ -94,9 +96,21 @@ Q15     : 后台运行 &  连续指令用 ;   [参照](http://blog.sina.com.cn/s
         eg: `./test A & ; ./test B &`
 
 Q16     : 杀死后台process [参照](http://blog.sina.com.cn/s/blog_90546d6f0101en9y.html) 
-        1. ps 查看这个process的PID 
+        1. ps 查看这个process的PID   
         2. kill PID
 
+Q17     : top  查看running process
+        ps 查看的是terminal control 的process
+
+Q18     : lldb 基于llvm的 debugger  [参考](http://www.starfelix.com/blog/2014/03/17/lldbdiao-shi-ming-ling-chu-tan/) [2](http://casatwy.com/shi-yong-lldbdiao-shi-cheng-xu.html)
+        还不太会用
+
+Q19     : otool 工具, 可用于看汇编码     `otool -tV exe`
+
+Q20     : 使用 SSH 远程拷贝  scp   [参考](http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/scp.html)
+        `scp local_file kanwu@cal...: filen`
+
+Q21     : 比较两个文件的异同 diff file1 file2 [参考](http://www.lampweb.org/linux/3/17.html)
 ## Reference 
 [一个PPT](https://lug.ustc.edu.cn/OpenCourse/Lesson8/lesson8.pdf)
 

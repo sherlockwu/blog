@@ -28,5 +28,13 @@ nowTime=datetime.datetime.now().strftime("%Y%m%d%H%M%S");#生成当前时间
 random_n = str(nowTime)
 ```
 
+#### 类型问题
+* string to int: int();    int to str: str()    [参考](http://blog.csdn.net/shanliangliuxing/article/details/7920400)
 
+#### 子类
+总体来说，就是这样:  class ssss(xxx)   [参考](http://www.runoob.com/python/python-object.html)  
+
+#### 杂
+* `sys.argv[k]`  import sys 之后 可以用这个类的argv属性读出来   输入的参数 
+  
 ## Ref
