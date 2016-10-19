@@ -55,6 +55,12 @@ echo "hello world"
 	```
 	但是，我还真的是没法再cuhk的home 来 spawn ssh...
 
+
+## zsh
+* 每次启动的时候会载入.zshrc 中的变量（而不再是.bashprofile了） 需要在这里面配置 [参考](https://github.com/robbyrussell/oh-my-zsh/issues/3807)
+* 
+
+
 ## 参考教材 
 [教材](http://tldp.org/LDP/abs/html/)
 [一本书](http://www.tinylab.org/open-shell-book/)
