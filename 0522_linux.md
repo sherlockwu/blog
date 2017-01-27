@@ -111,6 +111,14 @@ Q20     : 使用 SSH 远程拷贝  scp   [参考](http://linuxtools-rst.readthed
         `scp local_file kanwu@cal...: filen`
 
 Q21     : 比较两个文件的异同 diff file1 file2 [参考](http://www.lampweb.org/linux/3/17.html)
+
+## Redirect
+* >   无权限的  >|
+* >>
+* pipe: |
+        * 
+* [非常好的解释](http://www.linuxcommand.org/lts0060.php)
+
 ## Reference 
 [一个PPT](https://lug.ustc.edu.cn/OpenCourse/Lesson8/lesson8.pdf)
 

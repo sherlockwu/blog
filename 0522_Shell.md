@@ -61,6 +61,9 @@ echo "hello world"
 * 
 
 
+## 判断一个文件是否存在
+[参考](http://www.neatstudio.com/show-2578-1.shtml)
+
 ## 参考教材 
 [教材](http://tldp.org/LDP/abs/html/)
 [一本书](http://www.tinylab.org/open-shell-book/)
